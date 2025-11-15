@@ -4,6 +4,17 @@
   max-width: 800px;
 }
 
+.back-button {
+  color: #828282;
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
 .new-post h2 {
   font-size: 12pt;
   font-weight: normal;
@@ -50,6 +61,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  transition: box-shadow 0.2s ease;
+}
+
+.placeholder-post-suggestion:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .placeholder-post-content {
@@ -70,15 +86,27 @@
   cursor: pointer;
   font-size: 10pt;
   white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .use-placeholder-btn:hover {
   background-color: #ff7700;
   text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.use-placeholder-btn:active {
+  transform: translateY(0);
 }
 
 .use-placeholder-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  transform: none;
+}
+
+.use-placeholder-btn:disabled:hover {
+  background-color: #ccc;
+  transform: none;
 }
 
