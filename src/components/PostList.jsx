@@ -5,6 +5,7 @@ function PostList({ apiUrl, onPostClick }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [sortBy, setSortBy] = useState('date'); // 'date' or 'score'
 
   useEffect(() => {
     fetchPosts();
@@ -59,12 +60,35 @@ function PostList({ apiUrl, onPostClick }) {
     return `${Math.floor(diff / 86400)} days ago`;
   };
 
+  const sortedPosts = [...posts].sort((a, b) => {
+    if (sortBy === 'score') {
+      return b.score - a.score; // Highest score first
+    } else {
+      return b.created_at - a.created_at; // Newest first
+    }
+  });
+
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="post-list">
-      {posts.map((post, index) => (
+      <div className="sort-controls">
+        <span className="sort-label">Sort by:</span>
+        <button 
+          className={`sort-button ${sortBy === 'date' ? 'active' : ''}`}
+          onClick={() => setSortBy('date')}
+        >
+          Newest
+        </button>
+        <button 
+          className={`sort-button ${sortBy === 'score' ? 'active' : ''}`}
+          onClick={() => setSortBy('score')}
+        >
+          Upvotes
+        </button>
+      </div>
+      {sortedPosts.map((post, index) => (
         <div key={post.id} className="post-item">
           <div className="post-rank">{index + 1}.</div>
           <div className="post-votes">
