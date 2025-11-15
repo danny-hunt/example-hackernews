@@ -111,17 +111,6 @@ app.post("/api/posts/:id/upvote", (req, res) => {
   }
 });
 
-// Downvote post
-app.post("/api/posts/:id/downvote", (req, res) => {
-  try {
-    db.prepare("UPDATE posts SET score = score - 1 WHERE id = ?").run(req.params.id);
-    const post = db.prepare("SELECT * FROM posts WHERE id = ?").get(req.params.id);
-    res.json(post);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
 app.get("/api", (req, res) => {
   res.send("Healthy");
 });

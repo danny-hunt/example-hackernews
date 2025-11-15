@@ -37,18 +37,6 @@ function PostList({ apiUrl, onPostClick }) {
     }
   };
 
-  const handleDownvote = async (postId, e) => {
-    e.stopPropagation();
-    try {
-      const response = await fetch(`${apiUrl}/api/posts/${postId}/downvote`, {
-        method: 'POST',
-      });
-      if (!response.ok) throw new Error('Failed to downvote');
-      fetchPosts(); // Refresh the list
-    } catch (err) {
-      console.error('Error downvoting:', err);
-    }
-  };
 
   const formatTime = (timestamp) => {
     const now = Date.now() / 1000;
@@ -70,7 +58,6 @@ function PostList({ apiUrl, onPostClick }) {
           <div className="post-rank">{index + 1}.</div>
           <div className="post-votes">
             <div className="post-upvote" onClick={(e) => handleUpvote(post.id, e)}>▲</div>
-            <div className="post-downvote" onClick={(e) => handleDownvote(post.id, e)}>▼</div>
           </div>
           <div className="post-content">
             <div className="post-title-row">
