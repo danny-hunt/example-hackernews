@@ -2,38 +2,6 @@
   background-color: #f6f6ef;
 }
 
-.sort-controls {
-  padding: 8px 12px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.sort-label {
-  font-size: 9pt;
-  color: #828282;
-}
-
-.sort-button {
-  font-size: 9pt;
-  color: #828282;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-
-.sort-button:hover {
-  background-color: #e0e0e0;
-}
-
-.sort-button.active {
-  color: #ff6600;
-  font-weight: bold;
-}
-
 .post-item {
   display: flex;
   gap: 8px;
