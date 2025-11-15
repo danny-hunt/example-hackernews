@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PostList.css';
 
 function PostList({ apiUrl, onPostClick }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortBy, setSortBy] = useState('date'); // 'date' or 'score'
 
   useEffect(() => {
     fetchPosts();
@@ -23,15 +22,6 @@ function PostList({ apiUrl, onPostClick }) {
       setLoading(false);
     }
   };
-
-  const sortedPosts = useMemo(() => {
-    const postsCopy = [...posts];
-    if (sortBy === 'score') {
-      return postsCopy.sort((a, b) => b.score - a.score);
-    } else {
-      return postsCopy.sort((a, b) => b.created_at - a.created_at);
-    }
-  }, [posts, sortBy]);
 
   const handleUpvote = async (postId, e) => {
     e.stopPropagation();
@@ -74,22 +64,7 @@ function PostList({ apiUrl, onPostClick }) {
 
   return (
     <div className="post-list">
-      <div className="sort-controls">
-        <span className="sort-label">Sort by:</span>
-        <button 
-          className={`sort-button ${sortBy === 'date' ? 'active' : ''}`}
-          onClick={() => setSortBy('date')}
-        >
-          Date
-        </button>
-        <button 
-          className={`sort-button ${sortBy === 'score' ? 'active' : ''}`}
-          onClick={() => setSortBy('score')}
-        >
-          Upvotes
-        </button>
-      </div>
-      {sortedPosts.map((post, index) => (
+      {posts.map((post, index) => (
         <div key={post.id} className="post-item">
           <div className="post-rank">{index + 1}.</div>
           <div className="post-votes">
