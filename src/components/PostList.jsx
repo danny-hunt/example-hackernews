@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PostList.css';
 
 function PostList({ apiUrl, onPostClick }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortBy, setSortBy] = useState('newest'); // 'newest', 'oldest', 'score-high', 'score-low', 'comments-high', 'comments-low'
 
   useEffect(() => {
     fetchPosts();
@@ -24,25 +23,6 @@ function PostList({ apiUrl, onPostClick }) {
     }
   };
 
-  const sortedPosts = useMemo(() => {
-    const postsCopy = [...posts];
-    switch (sortBy) {
-      case 'newest':
-        return postsCopy.sort((a, b) => b.created_at - a.created_at);
-      case 'oldest':
-        return postsCopy.sort((a, b) => a.created_at - b.created_at);
-      case 'score-high':
-        return postsCopy.sort((a, b) => b.score - a.score);
-      case 'score-low':
-        return postsCopy.sort((a, b) => a.score - b.score);
-      case 'comments-high':
-        return postsCopy.sort((a, b) => b.comment_count - a.comment_count);
-      case 'comments-low':
-        return postsCopy.sort((a, b) => a.comment_count - b.comment_count);
-      default:
-        return postsCopy;
-    }
-  }, [posts, sortBy]);
 
   const handleUpvote = async (postId, e) => {
     e.stopPropagation();
@@ -85,23 +65,7 @@ function PostList({ apiUrl, onPostClick }) {
 
   return (
     <div className="post-list">
-      <div className="sort-controls">
-        <label htmlFor="sort-select">Sort by: </label>
-        <select 
-          id="sort-select"
-          value={sortBy} 
-          onChange={(e) => setSortBy(e.target.value)}
-          className="sort-select"
-        >
-          <option value="newest">Newest First</option>
-          <option value="oldest">Oldest First</option>
-          <option value="score-high">Highest Score</option>
-          <option value="score-low">Lowest Score</option>
-          <option value="comments-high">Most Comments</option>
-          <option value="comments-low">Least Comments</option>
-        </select>
-      </div>
-      {sortedPosts.map((post, index) => (
+      {posts.map((post, index) => (
         <div key={post.id} className="post-item">
           <div className="post-rank">{index + 1}.</div>
           <div className="post-votes">
