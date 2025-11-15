@@ -11,6 +11,7 @@ app.use(express.json());
 // Get all posts
 app.get("/api/posts", (req, res) => {
   try {
+    // Get posts with comment counts
     const posts = db
       .prepare(
         `
@@ -22,7 +23,27 @@ app.get("/api/posts", (req, res) => {
     `
       )
       .all();
-    res.json(posts);
+    
+    // Get top comment for each post using a subquery
+    const postsWithTopComments = posts.map(post => {
+      const topComment = db
+        .prepare(
+          `
+          SELECT * FROM comments 
+          WHERE post_id = ? 
+          ORDER BY created_at ASC
+          LIMIT 1
+        `
+        )
+        .get(post.id);
+      
+      return {
+        ...post,
+        top_comment: topComment || null
+      };
+    });
+    
+    res.json(postsWithTopComments);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
