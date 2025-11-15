@@ -29,7 +29,7 @@ function App() {
       <header className="header">
         <div className="header-content">
           <span className="logo" onClick={showList}>HN</span>
-          <span className="title" onClick={showList}>Hacker News</span>
+          <span className="title" onClick={showList}>Not Hacker News</span>
           <span className="nav">
             <button onClick={showNewPost}>submit</button>
           </span>
