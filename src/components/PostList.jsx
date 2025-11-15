@@ -5,6 +5,7 @@ function PostList({ apiUrl, onPostClick }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [animatingPostId, setAnimatingPostId] = useState(null);
 
   useEffect(() => {
     fetchPosts();
@@ -26,6 +27,11 @@ function PostList({ apiUrl, onPostClick }) {
 
   const handleUpvote = async (postId, e) => {
     e.stopPropagation();
+    
+    // Trigger animation
+    setAnimatingPostId(postId);
+    setTimeout(() => setAnimatingPostId(null), 600); // Match animation duration
+    
     try {
       const response = await fetch(`${apiUrl}/api/posts/${postId}/upvote`, {
         method: 'POST',
@@ -57,7 +63,12 @@ function PostList({ apiUrl, onPostClick }) {
         <div key={post.id} className="post-item">
           <div className="post-rank">{index + 1}.</div>
           <div className="post-votes">
-            <div className="post-upvote" onClick={(e) => handleUpvote(post.id, e)}>▲</div>
+            <div 
+              className={`post-upvote ${animatingPostId === post.id ? 'upvote-animating' : ''}`}
+              onClick={(e) => handleUpvote(post.id, e)}
+            >
+              ▲
+            </div>
           </div>
           <div className="post-content">
             <div className="post-title-row">
