@@ -36,17 +36,6 @@
   color: #ff6600;
 }
 
-.post-downvote {
-  cursor: pointer;
-  color: #828282;
-  font-size: 10pt;
-  user-select: none;
-  line-height: 1;
-}
-
-.post-downvote:hover {
-  color: #ff6600;
-}
 
 .post-content {
   flex: 1;
