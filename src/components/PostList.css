@@ -76,3 +76,17 @@
   color: #828282;
 }
 
+.post-top-comment {
+  margin-top: 4px;
+  padding-left: 8px;
+  border-left: 2px solid #828282;
+  font-size: 8pt;
+  color: #828282;
+  line-height: 1.4;
+}
+
+.top-comment-text {
+  display: block;
+  margin-top: 2px;
+}
+

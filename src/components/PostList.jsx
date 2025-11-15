@@ -84,6 +84,11 @@ function PostList({ apiUrl, onPostClick }) {
                 {post.comment_count} comments
               </button>
             </div>
+            {post.top_comment && (
+              <div className="post-top-comment">
+                <span className="top-comment-text">{post.top_comment.text}</span>
+              </div>
+            )}
           </div>
         </div>
       ))}
