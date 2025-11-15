@@ -76,16 +76,16 @@ function PostList({ apiUrl, onPostClick }) {
       <div className="sort-controls">
         <span className="sort-label">Sort by:</span>
         <button 
-          className={`sort-button ${sortBy === 'date' ? 'active' : ''}`}
-          onClick={() => setSortBy('date')}
-        >
-          Newest
-        </button>
-        <button 
           className={`sort-button ${sortBy === 'score' ? 'active' : ''}`}
           onClick={() => setSortBy('score')}
         >
           Upvotes
+        </button>
+        <button 
+          className={`sort-button ${sortBy === 'date' ? 'active' : ''}`}
+          onClick={() => setSortBy('date')}
+        >
+          Newest
         </button>
       </div>
       {sortedPosts.map((post, index) => (
