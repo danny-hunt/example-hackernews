@@ -8,6 +8,12 @@ function NewPost({ apiUrl, onBack }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
+  const fillPlaceholderPost = () => {
+    setTitle('Introduce Yourself');
+    setUrl('');
+    setText('Hi everyone! Please introduce yourselves in the comments. Tell us a bit about who you are, what you\'re working on, or what brings you here.');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -48,6 +54,20 @@ function NewPost({ apiUrl, onBack }) {
       <button onClick={onBack} className="back-button">← back</button>
       
       <h2>Submit a New Post</h2>
+      
+      <div className="placeholder-post-suggestion">
+        <div className="placeholder-post-content">
+          <strong>Suggested post:</strong> Ask others to introduce themselves
+        </div>
+        <button 
+          type="button" 
+          onClick={fillPlaceholderPost} 
+          className="use-placeholder-btn"
+          disabled={submitting}
+        >
+          Use this suggestion
+        </button>
+      </div>
       
       <form onSubmit={handleSubmit} className="new-post-form">
         {error && <div className="error-message">{error}</div>}
