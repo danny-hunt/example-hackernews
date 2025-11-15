@@ -1,0 +1,79 @@
+.post-detail {
+  background-color: #f6f6ef;
+  padding: 8px;
+}
+
+.back-button {
+  color: #828282;
+  margin-bottom: 12px;
+}
+
+.post-header {
+  margin-bottom: 16px;
+}
+
+.post-title-detail {
+  font-size: 12pt;
+  font-weight: normal;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.post-url-detail {
+  font-size: 8pt;
+  color: #828282;
+}
+
+.post-meta-detail {
+  font-size: 7pt;
+  color: #828282;
+}
+
+.post-text {
+  margin: 16px 0;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  line-height: 1.6;
+}
+
+.comment-form-section {
+  margin: 20px 0;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.comment-form textarea {
+  margin-bottom: 8px;
+}
+
+.comments-section {
+  margin-top: 20px;
+}
+
+.comment {
+  padding: 8px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  border-left: 2px solid #ff6600;
+}
+
+.comment-meta {
+  font-size: 7pt;
+  color: #828282;
+  margin-bottom: 4px;
+}
+
+.comment-text {
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.no-comments {
+  color: #828282;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+}
+

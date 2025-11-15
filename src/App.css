@@ -1,0 +1,39 @@
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #ff6600;
+  padding: 2px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.logo {
+  border: 1px solid white;
+  padding: 2px 4px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+.nav {
+  margin-left: auto;
+  color: black;
+}
+
+.main {
+  padding: 8px;
+}
+

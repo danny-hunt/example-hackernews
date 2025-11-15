@@ -1,0 +1,43 @@
+.new-post {
+  background-color: #f6f6ef;
+  padding: 8px;
+  max-width: 800px;
+}
+
+.new-post h2 {
+  font-size: 12pt;
+  font-weight: normal;
+  margin: 16px 0;
+}
+
+.new-post-form {
+  background-color: #fff;
+  padding: 16px;
+  border: 1px solid #ddd;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #c62828;
+}
+
+.form-note {
+  font-size: 8pt;
+  color: #828282;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
