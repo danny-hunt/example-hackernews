@@ -20,17 +20,36 @@
   font-weight: bold;
   color: white;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logo:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .title {
   font-weight: bold;
   color: black;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.title:hover {
+  opacity: 0.7;
 }
 
 .nav {
   margin-left: auto;
   color: black;
+}
+
+.nav button {
+  transition: opacity 0.2s ease;
+}
+
+.nav button:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .main {

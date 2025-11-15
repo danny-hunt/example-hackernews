@@ -49,6 +49,13 @@ textarea {
   padding: 5px;
   border: 1px solid #ccc;
   resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.1);
 }
 
 input[type="text"] {
@@ -57,6 +64,13 @@ input[type="text"] {
   padding: 5px;
   border: 1px solid #ccc;
   width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.1);
 }
 
 .submit-btn {
@@ -66,10 +80,27 @@ input[type="text"] {
   border: none;
   cursor: pointer;
   font-size: 10pt;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .submit-btn:hover {
   background-color: #ff7700;
   text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-btn:disabled:hover {
+  background-color: #ccc;
+  transform: none;
 }
 

@@ -7,6 +7,12 @@
   gap: 8px;
   padding: 4px 0;
   align-items: flex-start;
+  transition: background-color 0.2s ease;
+  border-radius: 2px;
+}
+
+.post-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .post-rank {
@@ -60,10 +66,27 @@
   margin-left: 4px;
 }
 
+.post-url a {
+  transition: color 0.2s ease;
+}
+
+.post-url a:hover {
+  color: #ff6600;
+}
+
 .post-meta {
   font-size: 7pt;
   color: #828282;
   margin-top: 2px;
+}
+
+.post-meta button {
+  transition: color 0.2s ease;
+}
+
+.post-meta button:hover {
+  color: #ff6600;
+  text-decoration: underline;
 }
 
 .post-score {
