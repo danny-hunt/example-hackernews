@@ -51,3 +51,5 @@ frontend.on("exit", (code) => {
   backend.kill();
   process.exit(code);
 });
+
+

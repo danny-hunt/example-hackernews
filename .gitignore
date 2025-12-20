@@ -4,3 +4,4 @@ backend/database.db
 .DS_Store
 *.log
 reset.sh
+
